@@ -10,7 +10,7 @@ namespace Domain.Specificactions
         /// <param name="maxBackupAge">The maximum backup age in days</param>
         /// <param name="retainBeforeDate">The retain before date.</param>
         /// <param name="maxRetainedCount">The maximum retained count.</param>
-        public FinishingBackupRetentionSpecification(int maxBackupAge, DateTime retainBeforeDate, int maxRetainedCount) : base(maxBackupAge, retainBeforeDate, maxRetainedCount)
+        public FinishingBackupRetentionSpecification(uint maxBackupAge, DateTime retainBeforeDate, uint maxRetainedCount) : base(maxBackupAge, retainBeforeDate, maxRetainedCount)
         {
         }
 

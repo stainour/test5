@@ -7,7 +7,7 @@ namespace Domain.Specificactions
     public class BackupRetentionSpecificactionBuilder
     {
         private readonly DateTime _retainBeforeDate;
-        private readonly List<(int ageInDays, int maxRetainedCount)> _specSettings = new List<(int ageInDays, int maxCount)>();
+        private readonly List<(uint ageInDays, uint maxRetainedCount)> _specSettings = new List<(uint ageInDays, uint maxCount)>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupRetentionSpecificactionBuilder"/> class.
@@ -34,9 +34,9 @@ namespace Domain.Specificactions
         /// <paramref name="maxRetainedCount"/> less-than or equal to 0 or <paramref
         /// name="ageInDays"/> - All ageInDays should be in ascending order
         /// </exception>
-        public BackupRetentionSpecificactionBuilder AddRule(int ageInDays, int maxRetainedCount)
+        public BackupRetentionSpecificactionBuilder AddRule(uint ageInDays, uint maxRetainedCount)
         {
-            if (maxRetainedCount <= 0) throw new ArgumentOutOfRangeException(nameof(maxRetainedCount));
+            if (maxRetainedCount == 0) throw new ArgumentOutOfRangeException(nameof(maxRetainedCount));
             if (_specSettings.Any())
             {
                 var previosSpecSetting = _specSettings.Last();

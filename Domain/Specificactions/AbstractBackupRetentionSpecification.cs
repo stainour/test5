@@ -4,11 +4,11 @@ namespace Domain.Specificactions
 {
     internal abstract class AbstractBackupRetentionSpecification : IBackupRetentionSpecification
     {
-        protected internal readonly int MaxBackupAge;
+        protected internal readonly uint MaxBackupAge;
         protected internal readonly DateTime RetainBeforeDate;
         protected internal readonly DateTime ThresholdDate;
-        private readonly int _maxRetainedCount;
-        private int _currentRetainedCount;
+        private readonly uint _maxRetainedCount;
+        private uint _currentRetainedCount;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AbstractBackupRetentionSpecification"/> class.
@@ -16,7 +16,7 @@ namespace Domain.Specificactions
         /// <param name="maxBackupAge">The maximum backup age in days</param>
         /// <param name="retainBeforeDate">The retain before date.</param>
         /// <param name="maxRetainedCount">The maximum retained count.</param>
-        public AbstractBackupRetentionSpecification(int maxBackupAge, DateTime retainBeforeDate, int maxRetainedCount)
+        public AbstractBackupRetentionSpecification(uint maxBackupAge, DateTime retainBeforeDate, uint maxRetainedCount)
         {
             MaxBackupAge = maxBackupAge;
             RetainBeforeDate = retainBeforeDate;
