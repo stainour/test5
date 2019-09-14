@@ -39,9 +39,9 @@ namespace Domain.Specificactions
             if (maxRetainedCount == 0) throw new ArgumentOutOfRangeException(nameof(maxRetainedCount));
             if (_specSettings.Any())
             {
-                var previosSpecSetting = _specSettings.Last();
+                var previousSpecSetting = _specSettings.Last();
 
-                if (previosSpecSetting.ageInDays > ageInDays)
+                if (previousSpecSetting.ageInDays > ageInDays)
                 {
                     throw new ArgumentOutOfRangeException(nameof(ageInDays), "All ageInDays should be in ascending order");
                 }
@@ -78,11 +78,11 @@ namespace Domain.Specificactions
                 {
                     var specSetting = _specSettings[i];
 
-                    var specificaction = new InnerBackupRetentionSpecification(specSetting.ageInDays, _retainBeforeDate, specSetting.maxRetainedCount);
+                    var specification = new InnerBackupRetentionSpecification(specSetting.ageInDays, _retainBeforeDate, specSetting.maxRetainedCount);
 
-                    prevSpecification?.SetNextSpecification(specificaction);
+                    prevSpecification?.SetNextSpecification(specification);
 
-                    prevSpecification = specificaction;
+                    prevSpecification = specification;
 
                     if (firstSpecification == default)
                     {
