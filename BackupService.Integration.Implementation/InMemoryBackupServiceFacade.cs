@@ -12,7 +12,7 @@ namespace BackupService.Integration.Implementation
         public InMemoryBackupServiceFacade()
         {
             var now = DateTime.UtcNow;
-            _backups = Enumerable.Range(1, 30).Select(i => new Backup(i, now.AddHours(-i * 12))).ToList().OrderBy(backup => Guid.NewGuid()).ToList();
+            _backups = Enumerable.Range(1, 30).Select(i => new Backup(i, now.AddHours(-i * 12))).OrderBy(backup => Guid.NewGuid()).ToList();
         }
 
         /// <inheritdoc/>
